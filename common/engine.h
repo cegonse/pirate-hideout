@@ -2,8 +2,13 @@
 #define _ENGINE_H
 
 
-#define DREAM_BUILD
+#ifdef WINDOWS_BUILD
+#pragma once
+#include <Windows.h>
+#elif DREAMCAST_BUILD
 #include <kos.h>
+#endif
+
 #include <stdint.h>
 
 #include "renderer.h"

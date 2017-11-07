@@ -1,6 +1,10 @@
 #ifndef _BUILTIN_MESHES_H_
 #define _BUILTIN_MESHES_H_
 
+#ifdef WINDOWS_BUILD
+#pragma once
+#endif
+
 // Built-in cube prefab
 #define BUILTIN_CUBE_VERTEX_COUNT 36
 

@@ -1,13 +1,20 @@
 #ifndef _RENDERER_H_
 #define _RENDERER_H_
 
+#ifdef WINDOWS_BUILD
+#pragma once
+#include <Windows.h>
+#include <gl\GL.h>
+#elif DREAMCAST_BUILD
+#include <GL/glut.h>
+#include <GL/gl.h>
+#endif
+
+#include <stdint.h>
+
 #include "vector.h"
 #include "builtin_meshes.h"
 #include "scene.h"
-
-#include <GL/gl.h>
-#include <GL/glut.h>
-#include <stdint.h>
 
 typedef struct renderer
 {

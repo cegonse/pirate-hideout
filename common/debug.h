@@ -1,7 +1,12 @@
 #ifndef _DEBUG_H_
 #define _DEBUG_H
 
+#ifdef WINDOWS_BUILD
+#pragma once
+#include <Windows.h>
+#elif DREAMCAST_BUILD
 #include <kos.h>
+#endif
 
 /*
  * Several debug methods:

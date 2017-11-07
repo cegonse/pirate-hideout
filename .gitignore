@@ -1,0 +1,10 @@
+
+*.pdb
+*.ilk
+pirate-hideout-vs17/.vs/pirate-hideout-vs17/v15/.suo
+*.opendb
+*.db
+*.ipch
+*.obj
+*.tlog
+*.log

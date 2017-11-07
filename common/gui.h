@@ -1,12 +1,13 @@
 #ifndef _GUI_H_
 #define _GUI_H_
 
+#ifdef WINDOWS_BUILD
+#pragma once
+#endif
+
+#include <stdint.h>
 #include "vector.h"
 #include "renderer.h"
-
-#include <kos.h>
-#include <GL/gl.h>
-#include <stdint.h>
 
 void gui_init(int screenWidth, int screenHeight);
 void gui_doFrame();

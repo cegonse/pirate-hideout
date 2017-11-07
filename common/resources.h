@@ -1,11 +1,18 @@
 #ifndef _RESOURCES_H_
 #define _RESOURCES_H_
 
+#ifdef WINDOWS_BUILD
+#pragma once
+#include <Windows.h>
+#include <gl\GL.h>
+#elif DREAMCAST_BUILD
+#include <GL/gl.h>
+#endif
+
 #include <stdlib.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <string.h>
-#include <GL/gl.h>
 
 #include "renderer.h"
 #include "debug.h"

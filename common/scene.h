@@ -1,7 +1,7 @@
 ﻿#ifndef _SCENE_H_
 #define _SCENE_H_
 
-#ifdef _WIN64
+#ifdef WINDOWS_BUILD
 #pragma once
 #endif
 

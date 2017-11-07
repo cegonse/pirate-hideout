@@ -1,7 +1,13 @@
 #ifndef _VECTOR_H_
 #define _VECTOR_H_
 
-#define PI 3.14159265359f
+#ifdef WINDOWS_BUILD
+#pragma once
+#include <math.h>
+#include <string.h>
+
+#define M_PI           3.14159265358979323846
+#endif
 
 typedef struct mat44
 {
