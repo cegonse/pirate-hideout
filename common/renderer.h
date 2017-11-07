@@ -5,6 +5,8 @@
 #pragma once
 #include <Windows.h>
 #include <gl\GL.h>
+#include <GL\GLU.h>
+#include <GL\freeglut.h>
 #elif DREAMCAST_BUILD
 #include <GL/glut.h>
 #include <GL/gl.h>
@@ -64,7 +66,12 @@ typedef struct font
 	glyph_t* glyphs;
 } font_t;
 
+#ifdef WINDOWS_BUILD
+void renderer_init(renderer_t* rend, int argc, char* argv[]);
+#elif DREAMCAST_BUILD
 void renderer_init(renderer_t* rend);
+#endif
+
 void renderer_doFrame(scene_t* scene);
 void renderer_endFrame();
 void renderer_destroy();

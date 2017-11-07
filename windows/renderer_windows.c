@@ -5,7 +5,7 @@
 renderer_t* rendererInstance;
 mesh_t primitiveCube;
 
-void renderer_init(renderer_t* rend)
+void renderer_init(renderer_t* rend, int argc, char* argv[])
 {
 	rend->renderResolutionX = 640;
 	rend->renderResolutionY = 480;
@@ -18,6 +18,13 @@ void renderer_init(renderer_t* rend)
 	primitiveCube.texture = NULL;
 	primitiveCube.count = BUILTIN_CUBE_VERTEX_COUNT;
 	primitiveCube.colorTint = VEC4_ONE;
+
+	// Create window
+	glutInit(&argc, argv);
+	glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);
+	glutInitWindowPosition(-1, -1);
+	glutInitWindowSize(rend->renderResolutionX, rend->renderResolutionY);
+	glutCreateWindow("Pirate Hideout");
 
 	rendererInstance = rend;
 }
@@ -36,7 +43,7 @@ void renderer_doFrame(scene_t* scene)
 	// Set projection matrix
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	//gluPerspective(45.0f, 640.0f / 480.0f, 0.1f, 100.0f);
+	gluPerspective(45.0f, 640.0f / 480.0f, 0.1f, 100.0f);
 
 	glClearColor(scene->backgroundColor.m[0], scene->backgroundColor.m[1], scene->backgroundColor.m[2], 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -44,9 +51,9 @@ void renderer_doFrame(scene_t* scene)
 
 void renderer_setCamera(scene_t* scene)
 {
-	/*gluLookAt(scene->cameraPosition.m[0], scene->cameraPosition.m[1], scene->cameraPosition.m[2],
+	gluLookAt(scene->cameraPosition.m[0], scene->cameraPosition.m[1], scene->cameraPosition.m[2],
 		scene->cameraDirection.m[0], scene->cameraDirection.m[1], scene->cameraDirection.m[2],
-		0.0f, 1.0f, 0.0f);*/
+		0.0f, 1.0f, 0.0f);
 }
 
 void renderer_drawAxes()
@@ -135,7 +142,7 @@ mesh_t* renderer_getPrimitiveCube()
 
 void renderer_endFrame()
 {
-	//glutSwapBuffers();
+	glutSwapBuffers();
 }
 
 void renderer_destroy()

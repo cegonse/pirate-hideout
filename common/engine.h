@@ -52,7 +52,13 @@ typedef struct engine
 } engine_t;
 
 // Public functions
+#ifdef WINDOWS_BUILD
+int engine_init(engine_t* hndl, int argc, char* argv[]);
+void engine_windows_main_function();
+#elif DREAMCAST_BUILD
 int engine_init(engine_t* hndl);
+#endif
+
 void engine_destroy();
 int engine_doFrame();
 void engine_endFrame();
